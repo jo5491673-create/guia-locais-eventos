@@ -141,10 +141,19 @@ header.masthead {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px 24px;
+    gap: 8px 24px;
     margin-bottom: 28px;
 }
+/* identidade ocupa o espaço; o menu só quebra de linha quando não cabe */
+.identidade {
+    flex: 1 1 20rem;
+    min-width: 0;
+}
 
+nav.primary {
+    flex: 0 1 auto;
+    max-width: 100%;
+}
 .identidade h1 {
     /* clamp(min, preferido, max): 360px -> 28px (piso) | 1280px -> 40px (teto) */
     font-size: clamp(1.75rem, 1.25rem + 2.2vw, 2.5rem);
@@ -169,10 +178,10 @@ header.masthead {
 nav.primary ul {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     flex-wrap: wrap;
     list-style: none;
-    margin: 0;
+    margin: 0 0 0 -14px;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 0.95rem;
@@ -698,8 +707,13 @@ ul.link-list a::before {
         align-items: center;
         flex-wrap: wrap;
         margin-bottom: 36px;
+        gap: 16px 32px;
     }
-
+    nav.primary ul {
+        justify-content: flex-end;
+        margin: 0 -14px 0 0; /* alinha o último link à margem direita */
+    }
+    
     section.card { padding: 32px 36px; }
     thead th, tbody td { padding: 10px 14px; }
     table { font-size: 0.95rem; }
